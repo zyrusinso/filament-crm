@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Account;
+use App\Models\Organization;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,6 +28,8 @@ class ContactFactory extends Factory
             'region' => $this->faker->state,
             'country' => 'US',
             'postal_code' => $this->faker->postcode,
+            'account_id' => Account::factory(),
+            'organization_id' => Organization::factory()
         ];
     }
 }
