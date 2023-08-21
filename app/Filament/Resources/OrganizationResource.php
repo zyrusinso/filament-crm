@@ -17,6 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Squire\Models\Country;
 
@@ -32,7 +33,9 @@ class OrganizationResource extends Resource
             ->schema([
                 Card::make()->schema([
                     TextInput::make('name')->required(),
-                    TextInput::make('email')->unique()->email()->required(),
+                    TextInput::make('email')->unique(
+                        ignorable: fn(null|Model $record): null|Model => $record
+                    )->email()->required(),
                     TextInput::make('phone')->tel()->required(),
                     TextInput::make('address')->required(),
                     TextInput::make('city')->required(),
