@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Squire\Models\Country;
 
 class Organization extends Model
 {
@@ -24,6 +25,11 @@ class Organization extends Model
     public function contacts()
     {
         return $this->hasMany(Contact::class, 'organization_id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country');
     }
 
     public function scopeAccount(Builder $builder)
