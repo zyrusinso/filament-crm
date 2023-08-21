@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Squire\Models\Country;
 
 class Account extends Model
 {
@@ -29,5 +30,10 @@ class Account extends Model
             Contact::class,
             'account_id'
         );
+    }
+
+    public function countryName()
+    {
+        return $this->belongsTo(Country::class, 'country');
     }
 }
