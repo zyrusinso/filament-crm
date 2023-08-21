@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrganizationResource\Pages;
 use App\Filament\Resources\OrganizationResource\RelationManagers;
+use App\Filament\Resources\OrganizationResource\RelationManagers\ContactsRelationManager;
 use App\Models\Organization;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
@@ -88,7 +89,7 @@ class OrganizationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ContactsRelationManager::class
         ];
     }
 

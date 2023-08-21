@@ -27,7 +27,7 @@ class Organization extends Model
         return $this->hasMany(Contact::class, 'organization_id');
     }
 
-    public function country()
+    public function countryName()
     {
         return $this->belongsTo(Country::class, 'country');
     }
