@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'account_id' => $account->id,
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'email' => 'johndoe@example.com',
+            'first_name' => 'Super',
+            'last_name' => 'Admin',
+            'email' => 'admin@gmail.com',
             'owner' => true,
         ]);
 
