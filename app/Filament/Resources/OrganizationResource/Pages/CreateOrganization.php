@@ -9,4 +9,11 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateOrganization extends CreateRecord
 {
     protected static string $resource = OrganizationResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['account_id'] = auth()->user()->id;
+
+        return $data;
+    }
 }

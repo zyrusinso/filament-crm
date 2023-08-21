@@ -30,6 +30,11 @@ class User extends Authenticatable implements FilamentUser, HasName
         'email_verified_at' => 'datetime',
     ];
 
+    public function account()
+    {
+        return $this->belongsTo(Account::class, 'account_id');
+    }
+
     public function canAccessFilament(): bool
     {
         return true;
